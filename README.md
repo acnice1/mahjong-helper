@@ -50,3 +50,10 @@ Lesson 14 now renders the physical walls, the BREAK marker, the separated 14-til
 
 ### Phase 3B draw variety update
 East begins with an isolated 9 Dots, then draws a North Wind and Green Dragon before drawing the winning 3 Dots on the third circuit. The lesson accepts the isolated tile appropriate to each turn and keeps all tile inventory checks intact.
+
+
+## Simulation mode — Lesson 15
+
+A standalone **four-circuit training simulation** with no hints or move correction.
+Choose any discard, advance the three controlled opponents, and draw from the tracked live wall.
+A constructed winning draw is available to East on circuit four **if the player preserves the required tiles**. If East has not won by circuit five, South draws a legal winning tile and wins. This is an intentionally scripted opponent outcome, **not** a general opponent AI, and the mode does not yet offer meld claims, flower replacement, or full competitive rounds.
