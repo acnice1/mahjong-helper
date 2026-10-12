@@ -154,13 +154,25 @@ function chooseSeat(w){const s=state.stage,k=step()[2];beep();if(k==='build'){if
 function reveal(i){if(step()[2]!=='seatdraw')return;state.stage.drawn.add(i);renderBoard();if(state.stage.drawn.size===4)complete('All four wind tiles are revealed. East is the dealer; South follows East, then West and North.');else message(`${state.stage.seatTiles[i]} revealed. Tap the remaining face-down tiles.`,'info')}
 function chooseStack(val){const [w,ii]=val.split(':'),i=+ii,s=state.stage,k=step()[2];if(k!=='count'){if(k==='build'){chooseSeat(w)}return}if(w!==s.selectedWall){wrong(`Count on the ${s.selectedWall} wall, not ${w}.`);return}let expected=17-s.counts.length;if(i!==expected){wrong(`Count each stack from the ${w} player's right-hand end. Next is stack ${s.counts.length+1}.`);return}s.counts.push(i);beep();renderBoard();if(s.counts.length===s.dice.reduce((a,b)=>a+b,0)){complete(`Great! You counted ${s.counts.length} stacks. The wall is split just beyond this stack, toward the owner's left.`)}else message(`Counted ${s.counts.length} of ${s.dice.reduce((a,b)=>a+b,0)} stacks. Tap the next stack.`,'info')}
 function chooseCenter(i){const k=step()[2];if(k==='flowerpick'){const tile=state.stage.flowerHand[i];if(!['Flowers','Seasons'].includes(tile.suit)){wrong(`${tile.name} is an ordinary tile, not a bonus tile. Try a flower or season.`);return}if(state.stage.selectedBonus.has(i)){wrong('You already selected this bonus tile. Choose the other one.');return}state.stage.selectedBonus.add(i);state.stage.flowerPicked=true;state.stage.bonusCount=state.stage.selectedBonus.size;if(state.stage.bonusCount>=2)complete('Correct: both Plum and Spring are bonus tiles. They are displayed face-up and replaced from the replacement end.');else message('Correct bonus tile. Find the other one.','success')} }
+// After the third four-tile circuit, continue the deal without requiring Next.
+// Keep the current hands and wall draw position intact.
+function advanceToFinalDeal(){
+ const s=state.stage;
+ if(s.dealIndex!==12 || !s.hands.every(h=>h.length===12))return;
+ state.step=STEPSETS[state.lesson].findIndex(entry=>entry[2]==='deal1');
+ state.ready=false;
+ state.feedback='';
+ state.feedbackType='';
+ render();
+ message('Everyone now has 12 tiles. Continue dealing: East takes 2 tiles, then South, West and North take 1 each. Select East to start.','success');
+}
 function dealTo(w){
  const s=state.stage,k=step()[2];
  if(k!=='deal4' && k!=='deal1')return;
  const firstPhaseDone=s.hands.every(h=>h.length===12);
  const finalDone=s.hands.every((h,i)=>h.length===(i===0?14:13));
  if(finalDone){message('Dealing is finished. East has 14 tiles and the other players each have 13. Select Next to continue.','success');refreshNext();return;}
- if(k==='deal4' && firstPhaseDone){message('Everyone has 12 tiles. Select Next to give the last tiles.','success');refreshNext();return;}
+ if(k==='deal4' && firstPhaseDone){advanceToFinalDeal();return;}
  if(k==='deal1' && !firstPhaseDone && s.dealIndex<12){wrong('Complete the three circuits of four tiles first.');return;}
  const index=s.dealIndex;
  const expected=WINDS[index%4];
@@ -174,7 +186,7 @@ function dealTo(w){
  s.dealIndex++;
  beep();renderBoard();renderControls();
  if(k==='deal4' && s.hands.every(h=>h.length===12)){
-  complete('Stop: all four players have exactly 12 tiles. Select Next for the final allocation.');
+  advanceToFinalDeal();
  }else if(k==='deal1' && s.hands.every((h,i)=>h.length===(i===0?14:13))){
   complete('Dealing finished: East has 14 tiles; South, West, and North each have 13. No more tiles may be dealt.');
  }else{
