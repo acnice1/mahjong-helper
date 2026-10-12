@@ -11,3 +11,32 @@ Uses a 144-tile Chinese / Hong Kong-style setup: four walls of 18 stacks, 2 high
 The table teaches setup procedures rather than simulating all 144 physical tiles leaving the live wall. Interactive dealing shows hand counts and face-down tiles, and wall breaking uses selectable stacks. The seating lesson demonstrates wind-tile identification; a fully physical wind-selection ceremony, detailed wall-tile depletion, tile-face accuracy improvements, and advanced animated dealing remain future refinements. Scoring, claiming, opponents and full-hand play are planned for later phases.
 
 References: https://mahjonglogbook.com/en/guides/hong-kong-mahjong-rules/ and https://www.ymimports.com/pages/how-to-play-chinese-mahjong
+
+
+## Phase 2A — Drawing & Discarding (Lesson 8)
+
+The learning path now includes **Drawing & discarding**, a four-step guided
+exercise: East discards from its initial 14 tiles; South, West, and North
+each draw from the live wall and discard; East draws and discards again.
+The SVG table shows all four concealed hands (East face up), individual discard
+areas, the live wall draw marker, and depletion of the live wall.
+All player hands finish with 13 tiles. The example intentionally uses no
+flowers or seasons so that replacement draws do not distract from turn order.
+This is a focused tutorial, **not yet** a fully autonomous Mahjong rules engine
+or a complete playable hand; claiming discards and scoring come later.
+
+## Phase 2B
+Lessons 9 and 10 add hands-on set building and discard claim eligibility. Select tiles in the center for Chow, Pung, Kong, pair puzzles and choose a call or Pass for five discard scenarios. These are guided exercises, not a full meld engine or opponent AI.
+
+
+## Phase 2C — Lesson 11: Develop your hand
+Four illustrated, interactive decisions introduce isolated tiles, flexible adjacent shapes, preserving a pair, and two-sided useful draws. Click a tile on the table; incorrect choices are explained and can be retried. The optional Strategy Coach provides a hint, and Show Me demonstrates an accepted choice. These are deliberately controlled instructional scenarios—not a full Mahjong hand-efficiency solver or a guarantee of the single best discard.
+
+## Phase 3A — Lessons 12 and 13
+Lesson 12 adds interactive standard-hand puzzles, checking the four sets plus one pair
+rule with a recursive hand validator (including Chow and Pung combinations). It does
+not validate regional special hands or full Kong / replacement sequences. Lesson 13
+teaches basic scoring *features* (dragon Pung, concealed hand, bonus tiles), not
+numerical points: traditional Chinese scoring systems vary and no complete point
+schedule has been selected. The fully guided playable hand and regional scoring
+calculator remain future work.
