@@ -40,3 +40,13 @@ teaches basic scoring *features* (dragon Pung, concealed hand, bonus tiles), not
 numerical points: traditional Chinese scoring systems vary and no complete point
 schedule has been selected. The fully guided playable hand and regional scoring
 calculator remain future work.
+
+
+## Phase 3B: Guided playable hand
+Lesson 14 demonstrates a synchronized 144-tile inventory, real wall depletion, counterclockwise automated turns, optional X-ray and coach, and a guaranteed winning draw. This is a short scripted guided hand, not yet an unrestricted multi-round game.
+
+## Guided hand wall view fix
+Lesson 14 now renders the physical walls, the BREAK marker, the separated 14-tile replacement end (seven stacks), and the highlighted DRAW stack. The same drawPointer and takenStacks state used for dealing and drawing determines which tiles remain visible. The live wall starts with 77 tiles after the initial 53-tile deal and separate 14-tile replacement reserve.
+
+### Phase 3B draw variety update
+East begins with an isolated 9 Dots, then draws a North Wind and Green Dragon before drawing the winning 3 Dots on the third circuit. The lesson accepts the isolated tile appropriate to each turn and keeps all tile inventory checks intact.
