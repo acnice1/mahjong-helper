@@ -105,3 +105,8 @@ main{max-width:1920px;margin:0 auto;padding:14px clamp(12px,2.2vw,40px) 30px}
 .tile-terms-guide{padding:16px;border-radius:10px;background:#f4f6ee;margin-top:18px;color:#395746}
 .tile-terms-guide p{font-size:13px;line-height:1.8;margin:8px 0}
 .tile-terms-guide small{color:#65766e}
+
+/* Simulation selection: visible without consuming table width. */
+.scenario-label{display:block;margin:12px 0 5px;font-weight:700;color:#e0c895}
+.scenario-select{display:block;width:100%;max-width:100%;padding:10px 12px;background:#193b30;color:#fff4d9;border:1px solid #c0a46d;border-radius:9px;font:inherit}
+.scenario-select:focus-visible{outline:3px solid #e8d18b;outline-offset:2px}

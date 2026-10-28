@@ -57,3 +57,8 @@ East begins with an isolated 9 Dots, then draws a North Wind and Green Dragon be
 A standalone **four-circuit training simulation** with no hints or move correction.
 Choose any discard, advance the three controlled opponents, and draw from the tracked live wall.
 A constructed winning draw is available to East on circuit four **if the player preserves the required tiles**. If East has not won by circuit five, South draws a legal winning tile and wins. This is an intentionally scripted opponent outcome, **not** a general opponent AI, and the mode does not yet offer meld claims, flower replacement, or full competitive rounds.
+
+
+## Five simulation scenarios
+
+Select **Simulation · Five games** in Learning Path, then choose a game from the selector in the lesson panel. Games range from a single missing tile to multiple incomplete groups and pairs; each scenario uses a fresh 144-tile physical inventory. All have a legal winning route by the fourth full circuit if the right tiles are retained. Choosing a different scenario resets the current simulation. No hints or corrections are provided. South has a scripted possible fifth-circuit win if East fails to win. These remain teaching scenarios, not an open-ended Mahjong rules engine; Chow/Pung/Kong claims and general opponent strategy are not yet supported.
